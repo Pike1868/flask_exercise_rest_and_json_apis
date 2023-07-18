@@ -4,18 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Flask Cupcakes Exercise</title>
 </head>
 
 <body>
+    <h1>Flask Cupcakes Exercise: REST APIs and JSON</h1>
+    <ul id="cupcakes_list">
 
-    <ul>
-        {%for cupcake in cupcakes%}
-        <li href="/api/cupcakes/{{cupcake.id}}">{{cupcake}}</li>
-        {%endfor%}
     </ul>
+    <button id="get_cupcakes">Get Cupcake Flavors</button>
+
+    <div class="m-4">
+        <form action="/api/cupcakes" method="POST">
+            <div class="mb-3">
+                {{ form.hidden_tag() }}
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                <p>
+                    {{field.label}}
+                    {{field}}
+                </p>
+                {% endfor %}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
 
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="/static/script.js"></script>
 </body>
 
 </html>

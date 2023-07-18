@@ -1,6 +1,7 @@
 """Flask app for Cupcakes"""
 from flask import Flask, request, jsonify, render_template
 from models import db, connect_db, Cupcake
+from forms import CupcakeForm
 
 app=Flask(__name__)
 
@@ -9,6 +10,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret-key'
 
 connect_db(app)
+
+@app.route("/")
+def index():
+    form = CupcakeForm()
+    return render_template("index.html", form=form)
 
 @app.route("/api/cupcakes")
 def list_all_cupcakes():
