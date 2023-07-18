@@ -30,3 +30,4 @@ class Cupcake(db.Model):
             'rating': self.rating,
             'image': self.image
         }
+        

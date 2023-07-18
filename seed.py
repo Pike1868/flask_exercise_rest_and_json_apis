@@ -10,7 +10,8 @@ with app.app_context():
         size="large",
         rating=5,
     )
-
+    
+    
     c2 = Cupcake(
         flavor="chocolate",
         size="small",

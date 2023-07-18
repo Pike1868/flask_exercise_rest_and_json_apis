@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Cupcakes Exercise</title>
+</head>
+
+<body>
+
+    <ul>
+        {%for cupcake in cupcakes%}
+        <li href="/api/cupcakes/{{cupcake.id}}">{{cupcake}}</li>
+        {%endfor%}
+    </ul>
+
+
+</body>
+
+</html>
